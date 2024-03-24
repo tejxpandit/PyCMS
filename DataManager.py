@@ -31,3 +31,17 @@ class DataManager():
         else:
             self.json_data = data.decode()
             self.decoding = True
+
+    def downloadData(self):
+        n_file = 0
+        n_files = len(self.filenames)
+        if self.login.login_status:
+            for file in self.filenames:
+                try:
+                    # Download Data Files
+                    download_command = "RETR " + file + ".json"
+                    self.ftp.retrbinary(download_command, self.decodeData)
+                    self.decoding = False
+                    print("Downloaded File : " + file + ".json")
+                except:
+                    print("Failed to Download File : " + file + ".json")
