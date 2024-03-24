@@ -23,3 +23,11 @@ class DataManager():
         self.json_data = None
         self.decoding = False
         self.data = {}
+
+    # Decode FTP Data Chunks 8192'b, Decode as Strings and Concatenate them
+    def decodeData(self, data):
+        if self.decoding:
+            self.json_data += data.decode()
+        else:
+            self.json_data = data.decode()
+            self.decoding = True
