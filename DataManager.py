@@ -51,4 +51,12 @@ class DataManager():
                 # with open(filename, "w") as output_file:
                 #     output_file.write(self.json_data)
 
-                
+                # Add Data to Dictionary
+                self.data[file] = json.loads(self.json_data)
+
+                # Update Download Progress Bar
+                n_file += 1
+                progress = n_file / n_files
+                print(str(progress*100) + "%")
+                dpg.set_value("download_progress", progress)
+                time.sleep(0.5)
