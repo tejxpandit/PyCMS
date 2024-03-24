@@ -45,3 +45,10 @@ class DataManager():
                     print("Downloaded File : " + file + ".json")
                 except:
                     print("Failed to Download File : " + file + ".json")
+
+                # Save Data Locally
+                # filename = os.path.join(self.data_folder, file + ".json")
+                # with open(filename, "w") as output_file:
+                #     output_file.write(self.json_data)
+
+                
