@@ -60,3 +60,6 @@ class DataManager():
                 print(str(progress*100) + "%")
                 dpg.set_value("download_progress", progress)
                 time.sleep(0.5)
+
+        # Logout of Server Temporarily
+        self.login.logout()
