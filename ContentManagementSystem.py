@@ -29,3 +29,15 @@ class ContentManagementSystem():
         wh = dpg.get_item_height(tag)
         print([(vw / 2) - (ww / 2), (vh / 2) - (wh / 2)])
         dpg.set_item_pos(tag, [(vw / 2) - (ww / 2), (vh / 2) - (wh / 2)])
+
+    def createCMSWindow(self):
+        # CMS Window
+        dpg.add_window(label="NUAI Lab : Content Management System", width=1100, height=600, show=False, tag="window_cms")
+        dpg.add_tab_bar(parent="window_cms", tag="tab_bar_cms")
+        dpg.add_tab(label="Team Members", parent="tab_bar_cms", tag="tab_members")
+        dpg.add_tab(label="Alumni", parent="tab_bar_cms", tag="tab_alumni")
+        dpg.add_tab(label="News", parent="tab_bar_cms", tag="tab_news")
+        dpg.add_tab(label="Publications", parent="tab_bar_cms", tag="tab_pubs")
+        dpg.add_tab(label="Featured Pubs", parent="tab_bar_cms", tag="tab_feat_pubs")
+        dpg.add_tab(label="Sponsors", parent="tab_bar_cms", tag="tab_sponsors")
+        dpg.set_item_pos("window_cms", [30, 30])
