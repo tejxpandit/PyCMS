@@ -22,3 +22,10 @@ class ContentManagementSystem():
         self.cms_pubs = CMS_Publications()
         self.cms_rpubs = CMS_RecentPubs()
 
+    def centerPosition(self, tag):
+        vw = dpg.get_viewport_client_width()
+        vh = dpg.get_viewport_client_height()
+        ww = dpg.get_item_width(tag)
+        wh = dpg.get_item_height(tag)
+        print([(vw / 2) - (ww / 2), (vh / 2) - (wh / 2)])
+        dpg.set_item_pos(tag, [(vw / 2) - (ww / 2), (vh / 2) - (wh / 2)])
