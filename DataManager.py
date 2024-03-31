@@ -73,3 +73,26 @@ class DataManager():
         dpg.set_value("publishbox_text", "Uploading to NUAI Lab Website...")
         n_file = 0
         n_files = len(self.filenames)
+        if True: #self.login.login_status:
+            for file in self.filenames:
+                # Enter Server Data Directory
+                # self.login.change_server_directory("/data")
+
+                # Get Data from Dictionary
+                self.json_data = self.data[file]
+
+                # Save Data Locally
+                filename = os.path.join(self.upload_folder, file + ".json")
+                print("Uploading Data : " + filename)
+                with open(filename, "w") as output_file:
+                    json.dump(self.json_data, output_file)
+
+                # Upload Files
+                upload_command = "STOR " + file + ".json"
+                # with open(filename, "rb") as output_file:
+                #     self.ftp.storbinary(upload_command, output_file)
+
+                # Enter Server Image Directory
+                # self.login.change_server_directory("/img/" + self.server_img_folders[file])
+
+                # Fine all Image Files to be Uploaded
