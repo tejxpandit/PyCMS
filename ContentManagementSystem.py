@@ -41,3 +41,12 @@ class ContentManagementSystem():
         dpg.add_tab(label="Featured Pubs", parent="tab_bar_cms", tag="tab_feat_pubs")
         dpg.add_tab(label="Sponsors", parent="tab_bar_cms", tag="tab_sponsors")
         dpg.set_item_pos("window_cms", [30, 30])
+
+        # Confirmation Box
+        dpg.add_window(label="Confirmation", modal=False, show=False, tag="confirmation_box", no_title_bar=True)
+        dpg.add_text("Are you sure you want to " + " ?", parent="confirmation_box", tag="confirmationbox_text")
+        dpg.add_separator(parent="confirmation_box")
+        dpg.add_group(horizontal=True, parent="confirmation_box", tag="confirmation_box_controls")
+        dpg.add_button(label="Yes", width=75, user_data="", parent="confirmation_box_controls", tag="confirmationbox_yes", callback=None)
+        dpg.add_button(label="Cancel", width=75, user_data="", parent="confirmation_box_controls", tag="confirmationbox_cancel", callback=None)
+        dpg.set_item_pos("confirmation_box", [450, 250])
