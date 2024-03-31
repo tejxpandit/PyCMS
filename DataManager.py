@@ -63,3 +63,13 @@ class DataManager():
 
         # Logout of Server Temporarily
         self.login.logout()
+
+    def uploadData(self):
+        # Reconnect to Server
+        # self.login.reconnect()
+        time.sleep(1.0)
+
+        # Upload Modified Data to Server
+        dpg.set_value("publishbox_text", "Uploading to NUAI Lab Website...")
+        n_file = 0
+        n_files = len(self.filenames)
