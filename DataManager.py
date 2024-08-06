@@ -96,3 +96,14 @@ class DataManager():
                 # self.login.change_server_directory("/img/" + self.server_img_folders[file])
 
                 # Fine all Image Files to be Uploaded
+                for key in self.imagefiles[file]:
+                    
+                    # Fetch Image Filenames
+                    img = self.imagefiles[file][key]
+
+                    # Upload Files
+                    img_filename = os.path.join(self.upload_image_folder, img)
+                    print("Uploading Image : " + img_filename)
+                    upload_command = "STOR " + img_filename
+                    # with open(img_filename, "rb") as output_img_filename:
+                    #     self.ftp.storbinary(upload_command, output_img_filename)
