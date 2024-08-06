@@ -107,3 +107,10 @@ class DataManager():
                     upload_command = "STOR " + img_filename
                     # with open(img_filename, "rb") as output_img_filename:
                     #     self.ftp.storbinary(upload_command, output_img_filename)
+
+                # Update Download Progress Bar
+                n_file += 1
+                progress = n_file / n_files
+                print(str(progress*100) + "%")
+                dpg.set_value("upload_progress", progress)
+                time.sleep(0.5)
