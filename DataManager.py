@@ -114,3 +114,11 @@ class DataManager():
                 print(str(progress*100) + "%")
                 dpg.set_value("upload_progress", progress)
                 time.sleep(0.5)
+
+            # Logout of Server Temporarily
+            # self.login.logout()
+
+            # Display Upload Status
+            dpg.set_value("publishbox_text", "Website Updated")
+            dpg.hide_item("upload_progress")
+            dpg.show_item("publishbox_ok")
