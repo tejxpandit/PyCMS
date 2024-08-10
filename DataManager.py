@@ -122,3 +122,14 @@ class DataManager():
             dpg.set_value("publishbox_text", "Website Updated")
             dpg.hide_item("upload_progress")
             dpg.show_item("publishbox_ok")
+
+
+def backupData(self):
+        for file in self.filenames:
+            # Get Data from Dictionary
+            self.json_data = self.data[file]
+            # Save Data in Local Backup Folder
+            filename = os.path.join(self.backup_folder, file + ".json")
+            with open(filename, "w") as output_file:
+                json.dump(self.json_data, output_file)
+        print("Data Backup Created")
