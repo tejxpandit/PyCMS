@@ -124,7 +124,7 @@ class DataManager():
             dpg.show_item("publishbox_ok")
 
 
-def backupData(self):
+    def backupData(self):
         for file in self.filenames:
             # Get Data from Dictionary
             self.json_data = self.data[file]
