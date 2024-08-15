@@ -135,3 +135,10 @@ class DataManager():
             with open(filename, "w") as output_file:
                 json.dump(self.json_data, output_file)
         print("Data Backup Created")
+
+    def restoreBackup(self):
+        for file in self.filenames:
+            filename = os.path.join(self.backup_folder, file + ".json")
+            with open(filename) as input_file:
+                self.data[file] = json.load(input_file)
+        print("Backup Data Restored")
