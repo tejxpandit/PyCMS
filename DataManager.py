@@ -36,6 +36,7 @@ class DataManager():
         n_file = 0
         n_files = len(self.filenames)
         if self.login.login_status:
+            self.login.change_server_directory("/data") # Enter Server Data Directory
             for file in self.filenames:
                 try:
                     # Download Data Files
@@ -61,6 +62,7 @@ class DataManager():
                 dpg.set_value("download_progress", progress)
                 time.sleep(0.5)
 
+        # print(self.data)
         # Logout of Server Temporarily
         self.login.logout()
 
@@ -115,15 +117,15 @@ class DataManager():
                 dpg.set_value("upload_progress", progress)
                 time.sleep(0.5)
 
-            # Logout of Server Temporarily
-            # self.login.logout()
 
-            # Display Upload Status
-            dpg.set_value("publishbox_text", "Website Updated")
-            dpg.hide_item("upload_progress")
-            dpg.show_item("publishbox_ok")
+        # Logout of Server Temporarily
+        # self.login.logout()
 
-
+        # Display Upload Status
+        dpg.set_value("publishbox_text", "Website Updated")
+        dpg.hide_item("upload_progress")
+        dpg.show_item("publishbox_ok")
+    
     def backupData(self):
         for file in self.filenames:
             # Get Data from Dictionary
