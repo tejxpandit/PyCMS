@@ -160,4 +160,7 @@ class DataManager():
             with open(filename) as input_file:
                 self.data[file] = json.load(input_file)
 
-    
+    # TESTING : DATA LOGGER
+    def logData(self):
+        for data_name in self.data:
+            print(data_name, self.data[data_name])
