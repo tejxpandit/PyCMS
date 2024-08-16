@@ -4,6 +4,7 @@
 # Date      : March 2024
 
 import os
+import shutil
 import time
 import json
 from ftplib import FTP_TLS
@@ -142,3 +143,11 @@ class DataManager():
             with open(filename) as input_file:
                 self.data[file] = json.load(input_file)
         print("Backup Data Restored")
+
+    def copyImage(self, path, filename, file, identifier):
+        try:
+            shutil.copy(path, self.upload_image_folder)
+            self.imagefiles[file][identifier] = filename
+            # print(self.imagefiles)
+        except:
+            print("Failed to Fetch Image!")
