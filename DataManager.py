@@ -151,3 +151,13 @@ class DataManager():
             # print(self.imagefiles)
         except:
             print("Failed to Fetch Image!")
+
+    # TESTING : LOCAL DATA LOADER
+    def loadLocalData(self):
+        for file in self.filenames:
+            local_data_folder = os.path.join(os.getcwd(), "localdata")
+            filename = os.path.join(local_data_folder, file + ".json")
+            with open(filename) as input_file:
+                self.data[file] = json.load(input_file)
+
+    
