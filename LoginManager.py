@@ -24,3 +24,16 @@ class LoginManager():
         self.cms = None
         self.login_status = False
         self.attempts = 0
+
+    def createLoginWindow(self):
+        # Login Window
+        dpg.add_window(label="LOGIN", modal=True, no_close=True, no_resize=True, no_move=True, no_collapse=True, tag="window_login", width=350, height=200)
+        dpg.add_input_text(label=": Server", default_value=server, parent="window_login", tag="input_server")
+        dpg.add_input_text(label=": Username", default_value=username, parent="window_login", tag="input_user")
+        dpg.add_input_text(label=": Password", default_value=password, password=True, parent="window_login", tag="input_password")
+        dpg.add_checkbox(label="Save Login Credentials", default_value=False, parent="window_login", tag="checkbox_save_credentials")
+        dpg.add_button(label="LOGIN", show=True, callback=self.login, parent="window_login", tag="login_button")
+        dpg.add_text("", show=False, parent="window_login", tag="login_status")
+        dpg.add_progress_bar(default_value=0.0, show=False, parent="window_login", tag="download_progress")
+        dpg.add_text("", show=False, parent="window_login", tag="data_status")
+        dpg.set_item_pos("window_login", [450, 200])
