@@ -37,3 +37,13 @@ class LoginManager():
         dpg.add_progress_bar(default_value=0.0, show=False, parent="window_login", tag="download_progress")
         dpg.add_text("", show=False, parent="window_login", tag="data_status")
         dpg.set_item_pos("window_login", [450, 200])
+
+    def login(self):
+        # Disable Login Window Temporarily
+        dpg.hide_item("login_button")
+        dpg.set_value("login_status", "Logging In...")
+        dpg.show_item("login_status")
+        # Get Login Credentials
+        self.server = dpg.get_value("input_server")
+        self.user = dpg.get_value("input_user")
+        self.password = dpg.get_value("input_password")
