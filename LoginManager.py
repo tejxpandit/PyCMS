@@ -12,3 +12,15 @@ except:
     server = ""
     username = ""
     password = ""
+
+class LoginManager():
+
+    def __init__(self):
+        self.server = server
+        self.user = username
+        self.password = password
+        self.ftp = None
+        self.dataman = None
+        self.cms = None
+        self.login_status = False
+        self.attempts = 0
