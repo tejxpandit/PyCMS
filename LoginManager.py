@@ -47,3 +47,20 @@ class LoginManager():
         self.server = dpg.get_value("input_server")
         self.user = dpg.get_value("input_user")
         self.password = dpg.get_value("input_password")
+        try:
+            # Attempt FTP Connection
+            self.ftp = FTP_TLS(self.server)
+            self.ftp.login(user=self.user, passwd=self.password)
+            self.ftp.prot_p()
+            
+            # Login Successful
+            print("Login Successful!")
+            dpg.set_value("login_status", "Login Successful!")
+            self.login_status = True
+
+            # Save Login Credentials if Checkbox = True
+            if dpg.get_value("checkbox_save_credentials"):
+                self.dataman.updateCredentials()
+            time.sleep(3)
+        except:
+            pass
