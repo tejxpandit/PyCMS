@@ -74,3 +74,9 @@ class LoginManager():
             time.sleep(3)
             dpg.hide_item("login_status")
             dpg.show_item("login_button")
+
+        # Exit App after 3 Failed Login Attempts
+        if self.attempts < 3:
+            return(self.login_status)
+        else:
+            exit(1)
