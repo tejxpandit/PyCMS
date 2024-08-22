@@ -63,4 +63,14 @@ class LoginManager():
                 self.dataman.updateCredentials()
             time.sleep(3)
         except:
-            pass
+            # FTP Connection Failed
+            print("Incorrect Login Credentials!")
+            dpg.set_value("login_status", "Incorrect Login Credentials!")
+            self.login_status = False
+            self.attempts += 1
+            print("Login Attempts Remaining : " + str(3-self.attempts))
+            
+            # Re-Enable Login Button
+            time.sleep(3)
+            dpg.hide_item("login_status")
+            dpg.show_item("login_button")
