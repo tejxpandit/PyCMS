@@ -103,3 +103,8 @@ class LoginManager():
             return(self.login_status)
         else:
             exit(1)
+
+    def logout(self):
+        if self.login_status:
+            self.ftp.quit()
+            self.login_status = False
