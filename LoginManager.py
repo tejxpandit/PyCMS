@@ -75,6 +75,29 @@ class LoginManager():
             dpg.hide_item("login_status")
             dpg.show_item("login_button")
 
+        # If Login Successful --> Download Data
+        if self.login_status:
+            # Download Website Data
+            dpg.set_value("login_status", "Downloading Website Data...")
+            dpg.show_item("download_progress")
+            self.dataman.login = self
+            self.dataman.ftp = self.ftp
+            self.dataman.downloadData()
+            dpg.set_value("login_status", "Download Complete!")
+            print("Download Complete!")
+            time.sleep(1)
+
+            # Update CMS with Data
+            self.cms.data = self.dataman.data
+            self.cms.updateCMSData()
+
+            # Hide Login Window
+            dpg.configure_item("window_login", show=False, modal=False)
+            #dpg.show_item("login_button")
+
+            # Proceed to CMS App
+            dpg.show_item("window_cms")
+            
         # Exit App after 3 Failed Login Attempts
         if self.attempts < 3:
             return(self.login_status)
