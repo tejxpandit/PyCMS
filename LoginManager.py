@@ -108,3 +108,8 @@ class LoginManager():
         if self.login_status:
             self.ftp.quit()
             self.login_status = False
+
+    def change_server_directory(self, dir):
+        if self.login_status:
+            self.ftp.cwd("/") # Reset to Server Root Directory
+            self.ftp.cwd(dir) # Enter Server Data Directory
