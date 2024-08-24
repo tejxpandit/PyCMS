@@ -113,3 +113,17 @@ class LoginManager():
         if self.login_status:
             self.ftp.cwd("/") # Reset to Server Root Directory
             self.ftp.cwd(dir) # Enter Server Data Directory
+
+    def reconnect(self):
+        if not self.login_status:
+            dpg.set_value("publishbox_text", "Connecting to Server...")
+            try:
+                # Attempt FTP Re-connection
+                self.ftp = FTP_TLS(self.server)
+                self.ftp.login(user=self.user, passwd=self.password)
+                self.ftp.prot_p()
+                self.login_status = True
+                dpg.set_value("publishbox_text", "Connected to Server!")
+                print("Reconnection Successful!")
+            except:
+                pass
