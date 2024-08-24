@@ -15,12 +15,20 @@ class DataManager():
     def __init__(self):
         self.ftp = None
         self.login = None
+        self.credentials_file = os.path.join(os.getcwd(), "credentials.py")
         self.data_folder = os.path.join(os.getcwd(), "data")
+        self.upload_folder = os.path.join(os.getcwd(), "upload")
+        self.upload_image_folder = os.path.join(os.getcwd(), "upload", "images")
+        self.backup_folder = os.path.join(os.getcwd(), "backup")
         self.filenames = ["alumni", 
                           "labmembers", 
                           "news", 
                           "publications", 
                           "recent-publications"]
+        self.server_img_folders = {"labmembers":"labmembers",
+                                   "news":"news",
+                                   "recent-publications":"pubs"}
+        self.imagefiles = {}
         self.json_data = None
         self.decoding = False
         self.data = {}
