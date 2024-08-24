@@ -126,4 +126,7 @@ class LoginManager():
                 dpg.set_value("publishbox_text", "Connected to Server!")
                 print("Reconnection Successful!")
             except:
-                pass
+                # Reconnection Failed
+                self.login_status = False
+                dpg.set_value("publishbox_text", "Connection Failed!")
+                print("Reconnection Failed!")
