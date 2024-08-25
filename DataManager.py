@@ -59,6 +59,13 @@ class DataManager():
         if not os.path.exists(self.credentials_file):
             with open("credentials.py", "w") as file:
                 file.write('server=""\nusername=""\npassword=""')
+
+    def updateCredentials(self):
+        if os.path.exists(self.credentials_file):
+            with open("credentials.py", "w") as file:
+                cred = 'server="' + self.login.server + '"\nusername="' + self.login.user + '"\npassword="' + self.login.password + '"'
+                file.write(cred)
+
     # Decode FTP Data Chunks 8192'b, Decode as Strings and Concatenate them
     def decodeData(self, data):
         if self.decoding:
