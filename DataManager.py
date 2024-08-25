@@ -55,6 +55,10 @@ class DataManager():
         for file in self.filenames:
             self.imagefiles[file] = {}
 
+    def initCredentials(self):
+        if not os.path.exists(self.credentials_file):
+            with open("credentials.py", "w") as file:
+                file.write('server=""\nusername=""\npassword=""')
     # Decode FTP Data Chunks 8192'b, Decode as Strings and Concatenate them
     def decodeData(self, data):
         if self.decoding:
