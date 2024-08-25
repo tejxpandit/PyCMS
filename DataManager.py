@@ -33,6 +33,7 @@ class DataManager():
         self.decoding = False
         self.data = {}
         self.initDataFolders()
+        self.initImageUploadDict()
 
     def initDataFolders(self):
         # Data Folder Check
@@ -49,6 +50,10 @@ class DataManager():
         # Backup Folder Check
         if not os.path.exists(self.backup_folder):
             os.makedirs(self.backup_folder)
+        
+    def initImageUploadDict(self):
+        for file in self.filenames:
+            self.imagefiles[file] = {}
 
     # Decode FTP Data Chunks 8192'b, Decode as Strings and Concatenate them
     def decodeData(self, data):
