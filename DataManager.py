@@ -1,7 +1,7 @@
 # Project   : Website CMS Python
 # Title     : Data Manager
 # Author    : Tej Pandit
-# Date      : March 2024
+# Date      : August 2024
 
 import os
 import shutil
@@ -32,6 +32,23 @@ class DataManager():
         self.json_data = None
         self.decoding = False
         self.data = {}
+        self.initDataFolders()
+
+    def initDataFolders(self):
+        # Data Folder Check
+        if os.path.exists(self.data_folder):
+            shutil.rmtree(self.data_folder, ignore_errors=True)
+        os.makedirs(self.data_folder)
+
+        # Upload Folder Check
+        if os.path.exists(self.upload_folder):
+            shutil.rmtree(self.upload_folder, ignore_errors=True)
+        os.makedirs(self.upload_folder)
+        os.makedirs(self.upload_image_folder)
+
+        # Backup Folder Check
+        if not os.path.exists(self.backup_folder):
+            os.makedirs(self.backup_folder)
 
     # Decode FTP Data Chunks 8192'b, Decode as Strings and Concatenate them
     def decodeData(self, data):
