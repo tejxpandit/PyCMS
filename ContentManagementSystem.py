@@ -50,3 +50,10 @@ class ContentManagementSystem():
         dpg.add_button(label="Yes", width=75, user_data="", parent="confirmation_box_controls", tag="confirmationbox_yes", callback=None)
         dpg.add_button(label="Cancel", width=75, user_data="", parent="confirmation_box_controls", tag="confirmationbox_cancel", callback=None)
         dpg.set_item_pos("confirmation_box", [450, 250])
+
+        # Publish Box
+        dpg.add_window(label="Publishing to Website", modal=False, show=False, tag="publish_box", no_title_bar=True)
+        dpg.add_text("Publishing to NUAI Lab Website...", parent="publish_box", tag="publishbox_text")
+        dpg.add_progress_bar(default_value=0.0, show=False, parent="publish_box", tag="upload_progress")
+        dpg.add_button(label="OK", show=False, parent="publish_box", tag="publishbox_ok", callback=lambda: dpg.configure_item("publish_box", show=False, modal=False))
+        dpg.set_item_pos("publish_box", [450, 250])
