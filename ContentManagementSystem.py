@@ -57,3 +57,11 @@ class ContentManagementSystem():
         dpg.add_progress_bar(default_value=0.0, show=False, parent="publish_box", tag="upload_progress")
         dpg.add_button(label="OK", show=False, parent="publish_box", tag="publishbox_ok", callback=lambda: dpg.configure_item("publish_box", show=False, modal=False))
         dpg.set_item_pos("publish_box", [450, 250])
+
+        # File Picker Box
+        with dpg.file_dialog(directory_selector=False, modal=False, show=False, callback=None, cancel_callback=None, width=700 ,height=400, tag="filepicker_box"):
+            dpg.add_file_extension("Images (*.jpg *.jpeg *.png){.jpg,.jpeg,.png}")
+            dpg.add_file_extension(".jpg", color=(161, 206, 90, 255), custom_text="[IMG]")
+            dpg.add_file_extension(".jpeg", color=(161, 206, 90, 255), custom_text="[IMG]")
+            dpg.add_file_extension(".png", color=(104, 191, 90, 200), custom_text="[IMG]")
+        
