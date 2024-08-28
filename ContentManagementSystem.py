@@ -71,3 +71,30 @@ class ContentManagementSystem():
         self.cms_news.createNewsTab()
         self.cms_pubs.createPubsTab()
         self.cms_rpubs.createRecentPubsTab()
+
+        # Update CMS Tabs with Data
+    def updateCMSData(self):
+        # Members Tab
+        self.cms_members.dataman = self.dataman
+        self.cms_members.loadData()
+        self.cms_members.updateDataList()
+
+        # Alumni Tab
+        self.cms_alumni.dataman = self.dataman
+        self.cms_alumni.loadData()
+        self.cms_alumni.updateDataList()
+
+        # News Tab
+        self.cms_news.dataman = self.dataman
+        self.cms_news.loadData()
+        self.cms_news.updateDataList()
+
+        # Publications Tab
+        self.cms_pubs.dataman = self.dataman
+        self.cms_pubs.loadData()
+        self.cms_pubs.updateDataList()
+
+        # Recent Publications Tab
+        self.cms_rpubs.dataman = self.dataman
+        self.cms_rpubs.loadData()
+        self.cms_rpubs.updateDataList()
