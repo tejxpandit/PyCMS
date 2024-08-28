@@ -13,10 +13,12 @@ dpg.create_viewport(title='NUAI Lab Website Manager', width=1200, height=700)
 
 cms = ContentManagementSystem()
 dataman = DataManager()
-#login = LoginManager()
+login = LoginManager()
 
-#login.dataman = dataman
-#login.cms = cms
+# Initilialize CMS and Data Manager Objects
+login.dataman = dataman
+login.cms = cms
+cms.dataman = dataman
 
 # TESTING : LOAD LOCAL DATA
 dataman.loadLocalData()
