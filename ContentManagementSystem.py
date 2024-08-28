@@ -65,3 +65,9 @@ class ContentManagementSystem():
             dpg.add_file_extension(".jpeg", color=(161, 206, 90, 255), custom_text="[IMG]")
             dpg.add_file_extension(".png", color=(104, 191, 90, 200), custom_text="[IMG]")
         
+        # Create CMS Tabs
+        self.cms_members.createMembersTab()
+        self.cms_alumni.createAlumniTab()
+        self.cms_news.createNewsTab()
+        self.cms_pubs.createPubsTab()
+        self.cms_rpubs.createRecentPubsTab()
