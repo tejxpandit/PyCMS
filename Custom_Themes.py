@@ -20,3 +20,13 @@ class Custom_Themes():
                 dpg.add_theme_color(dpg.mvThemeCol_ButtonHovered          , (182, 247, 194, 255))
                 dpg.add_theme_color(dpg.mvThemeCol_ButtonActive           , (83, 204, 105, 150))
         return theme
+    
+    # THEME : Backup and Restore Buttons
+    def BackupRestoreTheme(self) -> Union[str, int]:
+        with dpg.theme() as theme:
+            with dpg.theme_component(0):
+                dpg.add_theme_color(dpg.mvThemeCol_Text                   , (255, 255, 255, 255))
+                dpg.add_theme_color(dpg.mvThemeCol_Button                 , (76, 37, 115, 255))
+                dpg.add_theme_color(dpg.mvThemeCol_ButtonHovered          , (135, 80, 189, 255))
+                dpg.add_theme_color(dpg.mvThemeCol_ButtonActive           , (76, 37, 115, 150))
+        return theme
