@@ -30,3 +30,13 @@ class Custom_Themes():
                 dpg.add_theme_color(dpg.mvThemeCol_ButtonHovered          , (135, 80, 189, 255))
                 dpg.add_theme_color(dpg.mvThemeCol_ButtonActive           , (76, 37, 115, 150))
         return theme
+    
+    # THEME : Publish Button
+    def PublishTheme(self) -> Union[str, int]:
+        with dpg.theme() as theme:
+            with dpg.theme_component(0):
+                dpg.add_theme_color(dpg.mvThemeCol_Text                   , (255, 255, 255, 255))
+                dpg.add_theme_color(dpg.mvThemeCol_Button                 , (138, 20, 60, 255))
+                dpg.add_theme_color(dpg.mvThemeCol_ButtonHovered          , (209, 35, 94, 255))
+                dpg.add_theme_color(dpg.mvThemeCol_ButtonActive           , (138, 20, 60, 150))
+        return theme
