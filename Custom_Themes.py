@@ -50,3 +50,13 @@ class Custom_Themes():
                 dpg.add_theme_color(dpg.mvThemeCol_ButtonHovered          , (30, 158, 53, 255))
                 dpg.add_theme_color(dpg.mvThemeCol_ButtonActive           , (22, 107, 38, 150))
         return theme
+    
+    # THEME : Cancel Button
+    def CancelTheme(self) -> Union[str, int]:
+        with dpg.theme() as theme:
+            with dpg.theme_component(0):
+                dpg.add_theme_color(dpg.mvThemeCol_Text                   , (255, 255, 255, 255))
+                dpg.add_theme_color(dpg.mvThemeCol_Button                 , (153, 50, 35, 255))
+                dpg.add_theme_color(dpg.mvThemeCol_ButtonHovered          , (222, 75, 54, 255))
+                dpg.add_theme_color(dpg.mvThemeCol_ButtonActive           , (153, 50, 35, 150))
+        return theme
