@@ -60,3 +60,13 @@ class Custom_Themes():
                 dpg.add_theme_color(dpg.mvThemeCol_ButtonHovered          , (222, 75, 54, 255))
                 dpg.add_theme_color(dpg.mvThemeCol_ButtonActive           , (153, 50, 35, 150))
         return theme
+    
+    # THEME : Image Button
+    def ImageTheme(self) -> Union[str, int]:
+        with dpg.theme() as theme:
+            with dpg.theme_component(0):
+                dpg.add_theme_color(dpg.mvThemeCol_Text                   , (50, 50, 50, 255))
+                dpg.add_theme_color(dpg.mvThemeCol_Button                 , (200, 200, 200, 255))
+                dpg.add_theme_color(dpg.mvThemeCol_ButtonHovered          , (255, 255, 255, 255))
+                dpg.add_theme_color(dpg.mvThemeCol_ButtonActive           , (200, 200, 200, 150))
+        return theme
