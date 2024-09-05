@@ -81,3 +81,9 @@ class Custom_Themes():
     def ApplyEditThemes(self, edit_button):
         edit_theme = self.EditTheme()
         dpg.bind_item_theme(edit_button, edit_theme)
+
+    def ApplySaveCancelThemes(self, save_button, cancel_button):
+        save_theme = self.SaveTheme()
+        dpg.bind_item_theme(save_button, save_theme)
+        cancel_theme = self.CancelTheme()
+        dpg.bind_item_theme(cancel_button, cancel_theme)
