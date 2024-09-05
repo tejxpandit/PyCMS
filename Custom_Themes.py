@@ -70,3 +70,10 @@ class Custom_Themes():
                 dpg.add_theme_color(dpg.mvThemeCol_ButtonHovered          , (255, 255, 255, 255))
                 dpg.add_theme_color(dpg.mvThemeCol_ButtonActive           , (200, 200, 200, 150))
         return theme
+    
+    def ApplyControlThemes(self, backup_button, restore_button, publish_button):
+        backup_restore_theme = self.BackupRestoreTheme()
+        dpg.bind_item_theme(backup_button, backup_restore_theme)
+        dpg.bind_item_theme(restore_button, backup_restore_theme)
+        publish_theme = self.PublishTheme()
+        dpg.bind_item_theme(publish_button, publish_theme)
