@@ -77,3 +77,7 @@ class Custom_Themes():
         dpg.bind_item_theme(restore_button, backup_restore_theme)
         publish_theme = self.PublishTheme()
         dpg.bind_item_theme(publish_button, publish_theme)
+
+    def ApplyEditThemes(self, edit_button):
+        edit_theme = self.EditTheme()
+        dpg.bind_item_theme(edit_button, edit_theme)
