@@ -8,9 +8,11 @@ from LoginManager import LoginManager
 from ContentManagementSystem import ContentManagementSystem
 from DataManager import DataManager
 
+# Create Viewport [App Window]
 dpg.create_context()
 dpg.create_viewport(title='NUAI Lab Website Manager', width=1200, height=700)
 
+# Initialize Components
 cms = ContentManagementSystem()
 dataman = DataManager()
 login = LoginManager()
@@ -21,10 +23,13 @@ login.cms = cms
 cms.dataman = dataman
 
 # TESTING : LOAD LOCAL DATA
-dataman.loadLocalData()
+# dataman.loadLocalData()
 
+# Create CMS Window
 cms.createCMSWindow()
-#login.createLoginWindow()
+
+# Create Login Window
+login.createLoginWindow()
 
 dpg.setup_dearpygui()
 dpg.show_viewport()
