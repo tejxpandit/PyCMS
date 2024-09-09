@@ -20,3 +20,15 @@ class CMS_Controls():
         self.selected_image = ""
         self.theme = None
 
+    # COMMON CONTROLS
+    def createCommonControls(self):
+        # ListView Group
+        dpg.add_group(parent=self.tab, tag=self.lv)
+        dpg.add_listbox(items=["None"], num_items=10, parent=self.lv, tag=self.li, callback=self.listSelect)
+        dpg.add_separator(parent=self.lv)
+        # ListView : ReorderView Group
+        dpg.add_text("RE-ORDER", parent=self.lv)
+        dpg.add_group(horizontal=True, parent=self.lv, tag=self.rg)
+        dpg.add_button(label="MOVE UP", parent=self.rg, user_data=0, callback=self.reorder)
+        dpg.add_button(label="MOVE DOWN", parent=self.rg, user_data=1, callback=self.reorder)
+        dpg.add_separator(parent=self.lv)
