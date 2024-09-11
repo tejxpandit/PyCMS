@@ -32,3 +32,9 @@ class CMS_Controls():
         dpg.add_button(label="MOVE UP", parent=self.rg, user_data=0, callback=self.reorder)
         dpg.add_button(label="MOVE DOWN", parent=self.rg, user_data=1, callback=self.reorder)
         dpg.add_separator(parent=self.lv)
+        # ListView : Manage Buttons
+        dpg.add_text("MANAGE", parent=self.lv)
+        dpg.add_group(horizontal=True, parent=self.lv, tag=self.cg)
+        edit_button = dpg.add_button(label="EDIT", parent=self.cg, callback=self.edit)
+        dpg.add_button(label="DELETE", parent=self.cg, user_data="delete", callback=self.confirmationBox)
+        dpg.add_separator(parent=self.lv)
