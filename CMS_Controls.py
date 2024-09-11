@@ -43,3 +43,9 @@ class CMS_Controls():
         dpg.add_button(label="+ ADD NEW", parent=self.lv, callback=self.create)
         dpg.add_separator(parent=self.lv)
         dpg.add_separator(parent=self.lv)
+        # ListView : Backup Buttons
+        dpg.add_text("BACKUP : Backup current saved configuration (will overwrite previous backup)", parent=self.lv)
+        backup_button = dpg.add_button(label="CREATE BACKUP", parent=self.lv, user_data="backup", callback=self.confirmationBox)
+        dpg.add_text("RESTORE : Restore backup and overwrite all changes since backup", parent=self.lv)
+        restore_button = dpg.add_button(label="RESTORE BACKUP", parent=self.lv, user_data="restore", callback=self.confirmationBox)
+        dpg.add_separator(parent=self.lv)
