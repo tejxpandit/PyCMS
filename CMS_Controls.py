@@ -38,3 +38,8 @@ class CMS_Controls():
         edit_button = dpg.add_button(label="EDIT", parent=self.cg, callback=self.edit)
         dpg.add_button(label="DELETE", parent=self.cg, user_data="delete", callback=self.confirmationBox)
         dpg.add_separator(parent=self.lv)
+        # ListView : Create Buttons
+        dpg.add_text("CREATE", parent=self.lv)
+        dpg.add_button(label="+ ADD NEW", parent=self.lv, callback=self.create)
+        dpg.add_separator(parent=self.lv)
+        dpg.add_separator(parent=self.lv)
